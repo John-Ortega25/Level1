@@ -1,21 +1,31 @@
 //1.Make a canvas for your game.
+  PImage backgroundImage; 
+  import ddf.minim.*;
+  Minim minim;
+  AudioSample sound;
+
+  
   int x=100;
   int y=100;
   int speedX=3;
   int speedY=3;
  void setup(){
-  size(500, 1000);      //in setup method  
-  
+  size(1000, 1000);      //in setup method  
+  background(255,255,255);
+  minim= new Minim(this);
+  sound = minim.loadSample("sound.wav", 128);
+  backgroundImage = loadImage("Pong.png"); 
   //in draw method
  }
  void draw(){
 //2. Draw a ball on the screen.
   background(255,255,255);
+  image(backgroundImage, 0,0, 1000, 1000);
    y=y+speedY; 
    x=x+speedX;
  
   ellipse(x, y, 50, 50);  //in draw method
-  fill(0, 0, 150);    //in draw method
+  fill(150, 0, 0);    //in draw method
   stroke(20, 50, 0);    //in draw method
   if(x>=width){
     speedX=speedX*-1;
@@ -29,7 +39,8 @@
   if(y<= 0){
     speedY=speedY*-1;
   }
-  
+
+  sound.trigger();
  }
 //3. Make the ball move across the screen (left to right).
 
