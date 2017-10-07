@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
 
 public class BotOrNot implements ActionListener {
@@ -18,6 +19,7 @@ public class BotOrNot implements ActionListener {
 	String captcha2 = "captcha2";
 	Random generator = new Random();
 	int num = generator.nextInt(10);
+	JSlider slider= new JSlider();
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
@@ -40,11 +42,16 @@ public class BotOrNot implements ActionListener {
 	}
 
 	public void createUI() throws MalformedURLException {
+		JLabel label= new JLabel();
+		
 		JFrame frame = new JFrame();
 		JButton button = new JButton();
 		JPanel panel = new JPanel();
 		panel.setVisible(true);
 		frame.setVisible(true);
+		panel.add(slider);
+		label.setText("button");
+		panel.add(label);
 		frame.add(panel);
 		panel.add(button);
 		button.setText("ok");
