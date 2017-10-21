@@ -1,9 +1,11 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class WhackAMole implements ActionListener {
@@ -11,10 +13,13 @@ public class WhackAMole implements ActionListener {
 	JFrame frame;
 	JPanel panel;
 	Random generator = new Random();
+	int counter = 0;
+	
+	Date gameStart = new Date();
 
 	public void createUI() {
-		frame= new JFrame();
-		panel= new JPanel();
+		frame = new JFrame();
+		panel = new JPanel();
 		frame.add(panel);
 		frame.setVisible(true);
 		frame.setSize(900, 900);
@@ -35,12 +40,23 @@ public class WhackAMole implements ActionListener {
 		// TODO Auto-generated method stub
 		JButton buttonPressed = (JButton) e.getSource();
 		String buttonValue = buttonPressed.getText();
-		System.out.println("hello");
 		if (buttonValue.equals("mole")) {
-			frame.dispose();
-			createUI();
+			counter++;
+
+			if (counter == 10) {
+				Date gameEnd = new Date();
+				long time = gameEnd.getTime() - gameStart.getTime();
+				double time2= time/ 1000.0;
+				JOptionPane.showMessageDialog(null, "It took you " + time2 + " seconds to whack 10 moles!");
+				frame.dispose();
+			} else {
+				frame.dispose();
+				createUI();
+				
+			}
+
 		}
-		
+
 	}
 
 	public static void main(String[] args) {
