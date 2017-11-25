@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -25,14 +26,14 @@ public class BinaryConverter implements ActionListener {
 		buttonConvert.setText("Convert");
 		panel.setVisible(true);
 		buttonConvert.addActionListener(this);
+		frame.pack();
 		
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton buttonPressed= (JButton) e.getSource();
 		if (buttonPressed== buttonConvert) {
-			String input= text.getText();
-			System.out.println(input);
+		
 			int numInput= Integer.parseInt(input);
 			
 			int eightDigit= numInput/8;
@@ -46,9 +47,9 @@ public class BinaryConverter implements ActionListener {
 			
 			int oneDigit= numInput/1;
 			numInput= numInput -2* oneDigit;
+		
+		label.setText("Your number in binary is "+ eightDigit+ fourDigit+ twoDigit+ oneDigit );
 		}
-		
-		
 	}
 	public static void main(String[] args) {
 		BinaryConverter convert= new BinaryConverter();
