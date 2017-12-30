@@ -1,0 +1,28 @@
+
+	<head>
+		<title> Welcome to HTML </title>
+		<link rel="stylesheet" href="Styles.css"/>
+	</head>
+
+	<body>
+		<h1> Welcome to HTML! </h1>
+		<img src="https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"/>
+		<h2> Lets get started </h2>
+		<a href="https://codepupil.com/ex.html"> tutorial</a>
+		<h3> More information</h3>
+		<a href="https://en.wikipedia.org/wiki/HTML"> history</a>
+		<button type="button" id= "the-button"> Click here</button>
+		<p class="my-class">One</p>
+		<p>Two</p>
+		<p class="my-class">Three</p>
+		<script>
+			document.getElementById('the-button').onclick= function(){
+				//alert('Hello, World!');
+				var pList= document.getElementsByClassName('my-class')
+				for(var i=0;i<pList.length;i++){
+					pList[i].style.color='blue';
+				}
+			}
+		</script>
+	</body>
+</html>
